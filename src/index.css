@@ -1,13 +1,49 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  /* Main Primary color */
+--color-primary-0: #055F52;
+--color-primary-1: #019380;
+--color-primary-2: #077566;
+--color-primary-3: #004239;
+--color-primary-4: #002722;
+/* Main Primary color */
+--primary-0: hsl(171, 90%, 20%);
+--primary-1: hsl(172, 99%, 29%);
+--primary-2: hsl(172, 89%, 24%);
+--primary-3: hsl(172, 100%, 13%);
+--primary-4: hsl(172, 100%, 8%);
+/* Main Secondary color (2) */
+--color-secondary-0: #A63843;
+--color-secondary-1: #E95261;
+--color-secondary-2: #C84551;
+--color-secondary-3: #842C34;
+--color-secondary-4: #622026;
+/* Main Secondary color (2) */
+--secondary-0: hsl(354, 50%, 44%);
+--secondary-1: hsl(354, 77%, 62%);
+--secondary-2: hsl(355, 54%, 53%);
+--secondary-3: hsl(355, 50%, 35%);
+--secondary-4: hsl(355, 51%, 25%);
+/* grey used for paragraphs */
+--clr-grey-5: hsl(210, 22%, 49%);
+--clr-grey-6: hsl(209, 23%, 60%);
+--clr-grey-7: hsl(211, 27%, 70%);
+--clr-grey-8: hsl(210, 31%, 80%);
+--clr-grey-9: hsl(212, 33%, 89%);
+--clr-grey-10: hsl(210, 36%, 96%);
+--clr-white: hsl(0, 0%, 100%);
+--clr-red-dark: hsl(360, 67%, 44%);
+--clr-red-light: hsl(360, 71%, 66%);
+--clr-green-dark: hsl(125, 67%, 44%);
+--clr-green-light: hsl(125, 71%, 66%);
+--clr-black: hsl(0, 0%, 13%);
+--light-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.1);
+--dark-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.2);
+--slow-animation-timing: 600ms ease-in;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #C84551;
 }
