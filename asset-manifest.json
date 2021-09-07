@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/gallery4pen/static/css/main.86059f15.chunk.css",
+    "main.js": "/gallery4pen/static/js/main.6cb135de.chunk.js",
+    "main.js.map": "/gallery4pen/static/js/main.6cb135de.chunk.js.map",
+    "runtime-main.js": "/gallery4pen/static/js/runtime-main.f91edf26.js",
+    "runtime-main.js.map": "/gallery4pen/static/js/runtime-main.f91edf26.js.map",
+    "static/js/2.f053bad8.chunk.js": "/gallery4pen/static/js/2.f053bad8.chunk.js",
+    "static/js/2.f053bad8.chunk.js.map": "/gallery4pen/static/js/2.f053bad8.chunk.js.map",
+    "static/js/3.c8b802a5.chunk.js": "/gallery4pen/static/js/3.c8b802a5.chunk.js",
+    "static/js/3.c8b802a5.chunk.js.map": "/gallery4pen/static/js/3.c8b802a5.chunk.js.map",
+    "index.html": "/gallery4pen/index.html",
+    "static/css/main.86059f15.chunk.css.map": "/gallery4pen/static/css/main.86059f15.chunk.css.map",
+    "static/js/2.f053bad8.chunk.js.LICENSE.txt": "/gallery4pen/static/js/2.f053bad8.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/gallery4pen/static/media/Moon2.0-Regular.78446ac3.otf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f91edf26.js",
+    "static/js/2.f053bad8.chunk.js",
+    "static/css/main.86059f15.chunk.css",
+    "static/js/main.6cb135de.chunk.js"
+  ]
+}
