@@ -124,11 +124,9 @@ const Gallery = ( { currentImg, setCurrentImg }) => {       //insert setCurrentI
                             e.target.style.color = 'black'
                         } else {
                             doc.desc += ' fav'
-                            e.target.style.background = 'red'
                             e.target.style.color = 'red'
                         }
                         console.log(doc.desc);
-                            //if image desciption includes fac, delete it, else add it
                     }}
                         toggle={setToggle}>
                         <FontAwesomeIcon icon={faHeart}/>

@@ -114,14 +114,14 @@ const Modal = ({ currentImg, setCurrentImg }) => {    //prop used to display cor
                     // className={index === current ? 'target active' : 'target not-active'} 
                     className={ 'target' } 
                     onClick={handleClick}>
-                        <Tilt className="Tilt" options={{ max : 25 }} >
-                            <div className="Tilt-inner">
+                        {/* <Tilt className="Tilt" options={{ max : 15 }} > */}
+                            {/* <div className="Tilt-inner"> */}
                                 <OverlayImg as={motion.img} src={currentImg} alt={`front and center ${currentIndex()}`} 
                                 initial={ { rotate: 180, scale: 0, opacity: 0 } } 
                                 animate={ { rotate: 360, scale: 1, opacity: 1 } }
                                 transition={{ type: "spring", stiffness: 275, damping: 30 }} />
-                            </div>
-                        </Tilt>
+                            {/* </div> */}
+                        {/* </Tilt> */}
                 </Overlay>
             <FontAwesomeIcon className='prev arrow' icon={faArrowAltCircleRight} onClick={nextSlide} />
             <FontAwesomeIcon className='next arrow' icon={faArrowAltCircleLeft} onClick={prevSlide} />

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Moon";
+  src: url('../src/fonts/Moon2.0-Regular.otf');
+}
+
 :root {
   /* Main Primary color */
 --color-primary-0: #055F52;
@@ -46,4 +51,5 @@ html {
   padding: 0;
   box-sizing: border-box;
   background: #C84551;
+  font-family: sans-serif;
 }

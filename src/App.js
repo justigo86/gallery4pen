@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import UploadForm from './components/UploadForm';
-// import './App.css';
 import Gallery from './components/Gallery';
 import Modal from './components/Modal';
-// import Clock from './components/Clock';
 import styled from 'styled-components';
-// import useFirestore from './firebase/firestore';
 import Particles from 'react-particles-js';
-import { faSmileBeam } from '@fortawesome/free-regular-svg-icons';
 
 const Title = styled.h1 `
   text-align: center;
@@ -19,11 +15,8 @@ const Body = styled.div `
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Quicksand', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  /* font-family: 'Quicksand', sans-serif; */
   font-size: 16px;
-  /* background-color: #C84551; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;   //used to prevent double-click highlighting
