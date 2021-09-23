@@ -7,6 +7,9 @@ import { storage, firestore, timestamp } from '../firebase/firebase_config';
 const Form = styled.form `
     text-align: center;
     margin: 10px auto;
+    & > div {
+        font-weight: 600;
+    }
 `
 const Input = styled.input `
     height: 0;
@@ -43,17 +46,21 @@ const UploadForm = () => {
 
         for (let i = 0; i < e.target.files.length; i++) {
             let images = e.target.files[i];
-            setImages((prevState) => [...prevState, images]);
-            
-            if (images && filetypes.includes(images.type)) {
+            console.log(images.size);
+            if (images && filetypes.includes(images.type) && images.size < 1048577) {
+                setImages((prevState) => [...prevState, images]);
                 setFile(images);        //updating setFile state to the user entered file
                 setError('');        //clears error if previously displayed
-            } else {                
-                setFile(null);      //if the image submitted does not match type, clear image selected
-                setError('Please use a png or jpeg image type.');   //and display an error message
+            } 
+            else if (images.size > 1048576) {       //if image is more than 1MB
+                setFile(null);      //clear image selected 
+                setError('WARNING: File size too large. Please select file 1MB or less.');   //and display an error message
+            } 
+            else {                
+                setFile(null);      //clear image selected
+                setError('WARNING: Please use png, jpg, or jpeg image types.');   //and display an error message
             }
         }
-                    //if an image is submitted and the type (from file info) matches filetypes
     }
     
     useEffect(() => {
@@ -82,7 +89,7 @@ const UploadForm = () => {
                     .getDownloadURL()
                 //add the url above to the collection, along with timestamp
                     .then((url) => {
-                        const desc = 'testing plop';
+                        const desc = 'testing pop';
                         const createdAt = timestamp();      //create timestamp variable
                         collectionRef.add( { url, createdAt, desc })
                          //set the referenced url to the established url var
