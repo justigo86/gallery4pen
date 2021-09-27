@@ -1,7 +1,10 @@
 // import * as firebase from 'firebase/app';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/firestore';
+import 'firebase/auth';
+import 'firebase/messaging';
+import 'firebase/database';
 
 // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -16,7 +19,7 @@ import 'firebase/firestore';
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  // firebase.analytics();
 
   const storage = firebase.storage();
   const firestore = firebase.firestore();

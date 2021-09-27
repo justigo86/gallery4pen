@@ -88,8 +88,8 @@ const ImgContainer = styled.div `
 
 const Gallery = ( { currentImg, setCurrentImg }) => {       //insert setCurrentImg as prop (destructured) for modal functionality
     const { docs } = useFirestore('images');    //the images uploaded will be passed through firestore hook for data collection
-    const [toggle, setToggle] = useState(false);
-    const [ search, setSearch ] = useState(null);
+    const [ toggle, setToggle ] = useState(false);
+    const [ search, setSearch ] = useState('');
 
     // const toggleFavorite = (e) => {
     //     // console.log(e.target)
@@ -101,18 +101,21 @@ const Gallery = ( { currentImg, setCurrentImg }) => {       //insert setCurrentI
     //     }
     // }
 
-    const displaySearch = (incoming) => {
-        setSearch(incoming);
-        console.log(search);
+    const displaySearch = (e) => {      //searchBox search sets search state based on input
+        setSearch(e.target.value.toLowerCase());
     }
 
+    const filterImages = docs.filter(image => {     //searchBox input filters displayed images to only include search string
+        return image.desc.toLowerCase().includes(search);
+    })
+    
     return (
         //container wrapped around gallery containing array of uploaded images using the image urls - also use url for onClick for modal
             // layout, initial, animate, transition are used for framer-motion animations
         <div>
-        <SearchBox updateSearch={incoming => console.log(incoming)}/>
+        <SearchBox updateSearch={displaySearch}/>
             <ImgGallery>
-                { docs && docs.map(doc => (
+                { filterImages.map(doc => (
                     <ImgContainer as={motion.div} 
                     key={doc.id} 
                     onClick={() => {
