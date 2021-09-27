@@ -4,10 +4,11 @@ import Gallery from './components/Gallery';
 import Modal from './components/Modal';
 import styled from 'styled-components';
 import Particles from 'react-particles-js';
+import SearchBox from './components/SearchBox';
 
 const Title = styled.h1 `
   text-align: center;
-  color: white
+  color: white;
 `
 
 const Body = styled.div `
@@ -28,7 +29,7 @@ const Body = styled.div `
     left: 0;
     z-index: -1;
   }
-`;
+`
 
 const particlesOptions = {
   particles: {
@@ -43,7 +44,7 @@ const particlesOptions = {
     },
     size: {
       value: 10,
-      random: true,
+      random: true
     },
     opacity: {
       value: 1
@@ -54,7 +55,7 @@ const particlesOptions = {
       bounce: false
     },
     line_linked: {
-      enable: false,
+      enable: false
     }
   }
 }

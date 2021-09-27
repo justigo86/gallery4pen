@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle, faHeart } from '@fortawesome/free-regular-svg-icons';
+import SearchBox from '../components/SearchBox';
 
 const ImgGallery = styled.div `
     display: flex;
@@ -88,6 +89,7 @@ const ImgContainer = styled.div `
 const Gallery = ( { currentImg, setCurrentImg }) => {       //insert setCurrentImg as prop (destructured) for modal functionality
     const { docs } = useFirestore('images');    //the images uploaded will be passed through firestore hook for data collection
     const [toggle, setToggle] = useState(false);
+    const [ search, setSearch ] = useState(null);
 
     // const toggleFavorite = (e) => {
     //     // console.log(e.target)
@@ -99,45 +101,53 @@ const Gallery = ( { currentImg, setCurrentImg }) => {       //insert setCurrentI
     //     }
     // }
 
+    const displaySearch = (incoming) => {
+        setSearch(incoming);
+        console.log(search);
+    }
+
     return (
         //container wrapped around gallery containing array of uploaded images using the image urls - also use url for onClick for modal
             // layout, initial, animate, transition are used for framer-motion animations
-        <ImgGallery>
-            { docs && docs.map(doc => (
-                <ImgContainer as={motion.div} 
-                key={doc.id} 
-                onClick={() => {
-                    setCurrentImg(doc.url)
-                }}
-                layout>
-                    <DeleteBtn onClick={(e) => {
-                        e.stopPropagation();        //stops modal from popping up when deleting image
-                        firestore.collection('images').doc(doc.id).delete();    //delete image
-                    }}>
-                        <FontAwesomeIcon icon={faTimesCircle}/>
-                    </DeleteBtn> 
-                    <FavBtn onClick={(e) => {
-                        e.stopPropagation();        //stops modal from popping up when deleting image
-                        // toggleFavorite(e);
-                        if (doc.desc.includes(' fav')){
-                            doc.desc = doc.desc.replace(' fav', '')
-                            e.target.style.color = 'black'
-                        } else {
-                            doc.desc += ' fav'
-                            e.target.style.color = 'red'
-                        }
-                        console.log(doc.desc);
+        <div>
+        <SearchBox updateSearch={incoming => console.log(incoming)}/>
+            <ImgGallery>
+                { docs && docs.map(doc => (
+                    <ImgContainer as={motion.div} 
+                    key={doc.id} 
+                    onClick={() => {
+                        setCurrentImg(doc.url)
                     }}
-                        toggle={setToggle}>
-                        <FontAwesomeIcon icon={faHeart}/>
-                    </FavBtn> 
-                    <ContainerImg as={motion.img} src={doc.url} alt="has been uploaded by user"
-                    initial={ { opacity: 0 } }
-                    animate={ { opacity: 1 } }
-                    transition={ { delay: 1 } }/>
-                </ImgContainer>
-            ))}
-        </ImgGallery>
+                    layout>
+                        <DeleteBtn onClick={(e) => {
+                            e.stopPropagation();        //stops modal from popping up when deleting image
+                            firestore.collection('images').doc(doc.id).delete();    //delete image
+                        }}>
+                            <FontAwesomeIcon icon={faTimesCircle}/>
+                        </DeleteBtn> 
+                        <FavBtn onClick={(e) => {
+                            e.stopPropagation();        //stops modal from popping up when deleting image
+                            // toggleFavorite(e);
+                            if (doc.desc.includes(' fav')){
+                                doc.desc = doc.desc.replace(' fav', '')
+                                e.target.style.color = 'black'
+                            } else {
+                                doc.desc += ' fav'
+                                e.target.style.color = 'red'
+                            }
+                            console.log(doc.desc);
+                        }}
+                            toggle={setToggle}>
+                            <FontAwesomeIcon icon={faHeart}/>
+                        </FavBtn> 
+                        <ContainerImg as={motion.img} src={doc.url} alt="has been uploaded by user"
+                        initial={ { opacity: 0 } }
+                        animate={ { opacity: 1 } }
+                        transition={ { delay: 1 } }/>
+                    </ImgContainer>
+                ))}
+            </ImgGallery>
+        </div>
     )
 }
 
