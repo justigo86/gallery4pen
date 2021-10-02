@@ -122,6 +122,7 @@ const Modal = ({ currentImg, setCurrentImg }) => {    //prop used to display cor
                                 transition={{ type: "spring", stiffness: 275, damping: 30 }} />
                             {/* </div> */}
                         {/* </Tilt> */}
+                    <input type='text' id='descriptors'></input>
                 </Overlay>
             <FontAwesomeIcon className='prev arrow' icon={faArrowAltCircleRight} onClick={nextSlide} />
             <FontAwesomeIcon className='next arrow' icon={faArrowAltCircleLeft} onClick={prevSlide} />
